@@ -136,12 +136,12 @@ def run_optimizacion_y_sensibilidad():
     params_base = ModelParams(
         r=0.05,
         kappa_star=1.98,
-        theta_star=0.05,
-        eta_star=0.0101,
-        delta=0.02,
-        rho=0.07,
+        theta_star=0.0101,
+        eta_star=0.05,
+        delta=0.05,
+        rho=0.7,
         S0=100.0,
-        V0=0.04
+        V0=0.02
     )
     grid = GridParams(Smax=200.0, Vmax=0.16, dS=1.0, dV=0.0013)
     dt_target = 1.5024e-4
@@ -152,7 +152,7 @@ def run_optimizacion_y_sensibilidad():
         (0.5, 80), (1.0, 100), (1.0, 120)
     ]
 
-    bounds = (0.05, 5.0)
+    bounds = (0.01, 5.0)
 
     # 2. Calibrar kappa_star contra precios objetivo MC-HF
     params_opt, res, P_target = calibrate_one_param(
